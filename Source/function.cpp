@@ -2,7 +2,7 @@
 
 void drawExplanation(String title, String explanation)
 {
-	FontAsset(U"big")(title).draw(20, 10);
+	FontAsset(U"big") (title).draw(20, 10);
 	FontAsset(U"text")(explanation).draw(20, 50);
 }
 
