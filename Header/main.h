@@ -7,9 +7,6 @@ constexpr int SCENE_MAX     = 3;
 #include <Siv3D.hpp>
 #include "Button.h"
 
-extern void drawExplanation(String, String);
-extern void drawString(String, Vec2, bool);
-
 class _pages
 {
 	private:
@@ -18,6 +15,7 @@ class _pages
 		Button back;
 		////////////////////
 		// Function
+		void drawExplanation(String, String);
 		void welcome()
 		{
 			drawExplanation(
@@ -30,12 +28,13 @@ class _pages
 		void selectEditor()
 		{
 		}
-		//void (*page[SCENE_MAX])()=
-		//{
-		//	welcome,
-		//	selectLanguage,
-		//	selectEditor
-		//};
+		std::function<void()> page[SCENE_MAX] =
+		{
+			welcome,
+			selectLanguage,
+			selectEditor
+		};
+
 	public:
 		_pages()
 		{
