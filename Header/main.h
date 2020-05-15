@@ -16,36 +16,17 @@ class _pages
 		////////////////////
 		// Function
 		void drawExplanation(String, String);
-		void welcome()
-		{
-			drawExplanation(
-				U"Welcome to Programing Starter",
-				U"This Wizard will setup programing enviroment\nto your computer.");
-		}
-		void selectLanguage()
-		{
-		}
-		void selectEditor()
-		{
-		}
-		std::function<void()> page[SCENE_MAX] =
-		{
-			welcome,
-			selectLanguage,
-			selectEditor
-		};
+		void welcome();
+		void selectLanguage();
+		void selectEditor();
+		//std::function<void()> page[SCENE_MAX] =
+		//{
+		//	welcome,
+		//	selectLanguage,
+		//	selectEditor
+		//};
 
 	public:
-		_pages()
-		{
-			next = Button(U"Next", 20, Point(WINDOW_WIDTH -  35, WINDOW_HEIGHT - 15), 70, 30);
-			back = Button(U"Back", 20, Point(WINDOW_WIDTH - 120, WINDOW_HEIGHT - 15), 70, 30);
-		}
-		void update()
-		{
-			//page[scene]();
-			if (next.update())
-				scene++;
-			if(back.update()) scene--;
-		}
+		_pages();
+		void update();
 };
