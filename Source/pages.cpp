@@ -6,8 +6,6 @@ void _pages::drawExplanation(String title, String explanation)
 	FontAsset(U"text")(explanation).draw(20, 60);
 }
 
-////////////////////////////
-// _pages : management function
 
 _pages::_pages()
 {
@@ -28,6 +26,7 @@ void _pages::update()
 
 ////////////////////////
 // pages
+//
 
 void _pages::welcome()
 {
