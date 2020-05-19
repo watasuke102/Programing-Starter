@@ -15,6 +15,7 @@ class _checkLists
 		String name, explanation;
 	public:
 		_checkLists() { checked = false; }
+		void init(Point pos);
 		void update();
 };
 

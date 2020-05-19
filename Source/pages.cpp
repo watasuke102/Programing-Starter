@@ -32,12 +32,20 @@ void _pages::welcome()
 {
 	drawExplanation(
 		U"Welcome to Programing Starter",
-		U"This Wizard will setup programing enviroment\nto your computer."
+		U"This wizard will setup programing enviroment\nto your computer."
 	);
 }
 void _pages::selectLanguage()
 {
+	drawExplanation(
+		U"Select Programing Language",
+		U"Check your favorite programing language. "
+	);
 }
 void _pages::selectEditor()
 {
+	drawExplanation(
+		U"Select Text Editor",
+		U"Check your favorite text editor. "
+	);
 }
