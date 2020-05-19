@@ -10,7 +10,7 @@ Let's Try!
 This is wizard which can assist building programing enviroment. Choose programing language and editor, and this wizard will install them on Arch Linux(Manjaro/Alter Linux and other Arch derived distribution).
 
 ## どうやって使うの/How to use
-	git clone https://github.com/
+	git clone https://github.com/watasuke102/Programing-Starter
 このコマンドをターミナル上で実行後、Siv3D_Appを実行してください (開発中のため、自己責任でお願いします)。  
 Run this command on terminal. After that run Siv3D_App. (This is beta, so please run at your own responsibility.)
 
