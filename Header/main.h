@@ -14,6 +14,7 @@ class _pages
 		int scene = 0;
 		Button next;
 		Button back;
+		CSVData languageList, editorList;
 		////////////////////
 		// Function
 		void drawExplanation(String, String);

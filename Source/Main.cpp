@@ -7,7 +7,7 @@ void Main()
 	Window::Centering();
 
 	FontAsset::Register(U"big", 30);
-	FontAsset::Register(U"text", 20);
+	FontAsset::Register(U"text", 15);
 
 	_pages pages;
 	while (System::Update())

@@ -1,0 +1,17 @@
+[
+	{
+		"name": "Visual Studio Code",
+		"description":"Microsoft製クロスプラットフォームエディタ",
+		"package": "visual-studio-code-bin"
+	},
+	{
+		"name": "Sublime Text",
+		"description":"恋に落ちるテキストエディタ",
+		"package": "sublime-text-dev"
+	},
+	{
+		"name": "Atom",
+		"description":"Github製オープンソースエディタ",
+		"package": "atom-editor-bin"
+	}
+]

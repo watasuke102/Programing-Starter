@@ -1,0 +1,22 @@
+[
+	{
+		"name": "C/C++",
+		"description":"低レイヤ開発可能な汎用言語",
+		"package": "gcc g++ make"
+	},
+	{
+		"name": "Java",
+		"description":"クラスベースのオブジェクト指向言語",
+		"package": "jdk"
+	},
+	{
+		"name": "Python",
+		"description":"人工知能の開発にも用いられるインタプリタ言語",
+		"package": "python"
+	},
+	{
+		"name": "PHP",
+		"description":"サーバーサイドで動的なウェブページを生成",
+		"package": "php"
+	}
+]
