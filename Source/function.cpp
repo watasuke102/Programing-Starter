@@ -23,7 +23,7 @@ void _pages::update()
 		case 2: selectEditor();   break;
 	}
 	if (next.update()) scene++;
-	if(back.update())  scene--;
+	if (back.update()) scene--;
 }
 
 ////////////////////////
