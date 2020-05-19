@@ -8,6 +8,16 @@ constexpr int SCENE_MAX     = 3;
 #include <Siv3D.hpp>
 #include "Button.h"
 
+class _checkLists
+{
+	private:
+		bool checked;
+		String name, explanation;
+	public:
+		_checkLists() { checked = false; }
+		void update();
+};
+
 class _pages
 {
 	private:
