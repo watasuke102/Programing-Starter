@@ -8,7 +8,7 @@ _pages::_pages()
 }
 void _pages::update()
 {
-	switch(scene)
+	switch (scene)
 	{
 		case 0: welcome();        break;
 		case 1: selectLanguage(); break;
@@ -68,4 +68,6 @@ void _pages::selectEditor()
 		U"Select Text Editor",
 		U"Check your favorite text editor. "
 	);
+	for(auto i:step(checklist.size()))
+		checklist[i].update(Vec2(50, 150+ 30*i));
 }

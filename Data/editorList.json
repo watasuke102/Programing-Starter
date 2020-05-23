@@ -1,7 +1,7 @@
 {
 	"Items": [
 		{
-			"name": "Visual Studio Code",
+			"name": "VS Code",
 			"description":"Microsoft製クロスプラットフォームエディタ",
 			"package": "visual-studio-code-bin"
 		},
