@@ -2,8 +2,7 @@
 
 void _checkLists::init(String n, String e)
 {
-	name=n;
-	explanation=e;
+	name=n; explanation=e;
 	return;
 }
 void _checkLists::update(Vec2 pos)

@@ -32,9 +32,9 @@ void _pages::loadList()
 		case  2: json.open(U"Data/editorList.json");   break;
 		default: return;
 	}
-	if(json.isEmpty())
-		return;
+	if(json.isEmpty()) return;
 	int i = 0;
+	checklist.resize(json[U"Items"].arrayCount());
 	for (const auto &obj : json[U"Items"].arrayView())
 	{
 		checklist[i].init(obj[U"name"].getString(), obj[U"description"].getString());
@@ -60,7 +60,7 @@ void _pages::selectLanguage()
 		U"Check your favorite programing language. "
 	);
 	for(auto i:step(checklist.size()))
-		checklist[i].update(Vec2(50, 150+ 50*i));
+		checklist[i].update(Vec2(50, 150+ 30*i));
 }
 void _pages::selectEditor()
 {
