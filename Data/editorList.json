@@ -3,17 +3,17 @@
 		{
 			"name": "VS Code",
 			"description":"Microsoft製クロスプラットフォームエディタ",
-			"package": "visual-studio-code-bin"
+			"command": "visual-studio-code-bin"
 		},
 		{
 			"name": "Sublime Text",
 			"description":"恋に落ちるテキストエディタ",
-			"package": "sublime-text-dev"
+			"command": "sublime-text-dev"
 		},
 		{
 			"name": "Atom",
 			"description":"Github製オープンソースエディタ",
-			"package": "atom-editor-bin"
+			"command": "atom-editor-bin"
 		}
 	]
 }

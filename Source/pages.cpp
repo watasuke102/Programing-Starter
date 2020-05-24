@@ -10,12 +10,11 @@ void _pages::update()
 {
 	switch (scene)
 	{
-		case 0: welcome();        break;
-		case 1: selectLanguage(); break;
-		case 2: selectEditor();   break;
+		case 0: welcome();         break;
+		case 1: selectLanguage();  break;
+		case 2: selectEditor();    break;
+		case 3: showInstallList(); break;
 	}
-	if (next.update()) {scene++; loadList();}
-	if (back.update()) {scene--; loadList();}
 	scene = Clamp(scene, 0, SCENE_MAX-1);
 }
 void _pages::drawExplanation(String title, String explanation)
@@ -37,7 +36,11 @@ void _pages::loadList()
 	checklist.resize(json[U"Items"].arrayCount());
 	for (const auto &obj : json[U"Items"].arrayView())
 	{
-		checklist[i].init(obj[U"name"].getString(), obj[U"description"].getString());
+		checklist[i].init(
+			obj[U"name"].getString(),
+			obj[U"description"].getString(),
+			obj[U"command"].getString()
+		);
 		i++;
 	}
 }
@@ -52,6 +55,7 @@ void _pages::welcome()
 		U"Welcome to Programing Starter",
 		U"This wizard will setup programing enviroment\nto your computer."
 	);
+	if (next.update()) {scene++; loadList();}
 }
 void _pages::selectLanguage()
 {
@@ -61,6 +65,25 @@ void _pages::selectLanguage()
 	);
 	for(auto i:step(checklist.size()))
 		checklist[i].update(Vec2(50, 150+ 30*i));
+
+	if (next.update())
+	{
+		//コマンドリストなどを初期化しておく
+		installList.clear(); command.clear();
+
+		for (auto i : step(checklist.size()))
+			if(checklist[i].check())
+			{
+				//チェックが入っている項目をインストールリストに追加
+				installList += checklist[i].getName() + U", ";
+					command += checklist[i].getCommand() + U' ';
+				//コマンドは長くなるので、最後なら改行を挿入
+				if(i == checklist.size()-1)
+					command += U'\n';
+			}
+		scene++; loadList();
+	}
+	if (back.update()) {scene--; loadList();}
 }
 void _pages::selectEditor()
 {
@@ -70,4 +93,36 @@ void _pages::selectEditor()
 	);
 	for(auto i:step(checklist.size()))
 		checklist[i].update(Vec2(50, 150+ 30*i));
+
+	if (next.update())
+	{
+		for(auto i:step(checklist.size()))
+			if(checklist[i].check())
+			{
+				//チェックが入っている項目をインストールリストに追加
+				installList += checklist[i].getName() + U", ";
+					command += checklist[i].getCommand() + U' ';
+				//最後なら","を削除する
+				if(i == checklist.size()-1)
+					installList[installList.size() - 2]=U' ';
+			}
+		scene++; loadList();
+	}
+	if (back.update()) {scene--; loadList();}
+}
+
+void _pages::showInstallList()
+{
+	drawExplanation(
+		U"Check Your Choice",
+		U"This wizard will install these softwares.\n\n {}\n(package: {})"_fmt(installList,command)
+	);
+	if (next.update())
+	{
+		String tmp = U"yay -Syu --noconfirm; yay -S {} --noconfirm"_fmt(command);
+		std::string run = tmp.narrow();
+		system(run.c_str());
+		scene++; loadList();
+	}
+	if (back.update()) {scene--; loadList();}
 }

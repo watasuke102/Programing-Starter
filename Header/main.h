@@ -2,7 +2,7 @@
 
 constexpr int WINDOW_WIDTH  = 600;
 constexpr int WINDOW_HEIGHT = 400;
-constexpr int SCENE_MAX     = 3;
+constexpr int SCENE_MAX     = 4;
 
 #include <iostream>
 #include <Siv3D.hpp>
@@ -12,11 +12,14 @@ class _checkLists
 {
 	private:
 		bool checked;
-		String name, explanation;
+		String name, explanation, command;
 	public:
 		_checkLists() { checked = false; }
-		void init(String, String);
+		void init(String, String, String);
 		void update(Vec2);
+		bool check() { return checked; }
+		String getCommand() { return command; }
+		String getName() { return name; }
 };
 
 class _pages
@@ -24,6 +27,7 @@ class _pages
 	private:
 		int scene = 0;
 		bool initialized = false;
+		String installList, command;//yay -S (command) --noconfirm
 		Button next;
 		Button back;
 		Array<_checkLists> checklist;
@@ -35,6 +39,7 @@ class _pages
 		void welcome();
 		void selectLanguage();
 		void selectEditor();
+		void showInstallList();
 
 	public:
 		_pages();

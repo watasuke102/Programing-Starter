@@ -1,9 +1,9 @@
 #include "main.h"
 
-void _checkLists::init(String n, String e)
+void _checkLists::init(String n, String e, String c)
 {
-	name=n; explanation=e;
-	return;
+	checked = false;
+	name=n; explanation=e; command=c;
 }
 void _checkLists::update(Vec2 pos)
 {
