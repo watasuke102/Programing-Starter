@@ -2,5 +2,7 @@
 !/Header
 !/Source
 !/Data
-!README.md
+
 !.gitignore
+!README.md
+!CMakeLists.txt
