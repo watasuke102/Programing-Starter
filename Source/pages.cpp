@@ -14,6 +14,7 @@ void _pages::update()
 		case 1: selectLanguage();  break;
 		case 2: selectEditor();    break;
 		case 3: showInstallList(); break;
+		case 4: finishWizard();    break;
 	}
 	scene = Clamp(scene, 0, SCENE_MAX-1);
 }
@@ -72,15 +73,18 @@ void _pages::selectLanguage()
 		installList.clear(); command.clear();
 
 		for (auto i : step(checklist.size()))
+		{
 			if(checklist[i].check())
 			{
 				//チェックが入っている項目をインストールリストに追加
 				installList += checklist[i].getName() + U", ";
 					command += checklist[i].getCommand() + U' ';
-				//コマンドは長くなるので、最後なら改行を挿入
-				if(i == checklist.size()-1)
-					command += U'\n';
 			}
+			//TODO:ここで改行を入れるとコマンド実行が面倒なので修正
+			//コマンドは長くなるので、最後なら改行を挿入
+			if(i == checklist.size()-1)
+				command += U'\n';
+		}
 		scene++; loadList();
 	}
 	if (back.update()) {scene--; loadList();}
@@ -97,15 +101,17 @@ void _pages::selectEditor()
 	if (next.update())
 	{
 		for(auto i:step(checklist.size()))
+		{
 			if(checklist[i].check())
 			{
 				//チェックが入っている項目をインストールリストに追加
 				installList += checklist[i].getName() + U", ";
 					command += checklist[i].getCommand() + U' ';
-				//最後なら","を削除する
-				if(i == checklist.size()-1)
-					installList[installList.size() - 2]=U' ';
 			}
+			//最後なら","を削除する
+			if(i == checklist.size()-1)
+				installList[installList.size() - 2]=U' ';
+		}
 		scene++; loadList();
 	}
 	if (back.update()) {scene--; loadList();}
@@ -120,9 +126,18 @@ void _pages::showInstallList()
 	if (next.update())
 	{
 		String tmp = U"yay -Syu --noconfirm; yay -S {} --noconfirm"_fmt(command);
+		Print << U"\n\n\n\n\n" << tmp;
 		std::string run = tmp.narrow();
-		system(run.c_str());
+		//system(run.c_str());
 		scene++; loadList();
 	}
 	if (back.update()) {scene--; loadList();}
+}
+void _pages::finishWizard()
+{
+	drawExplanation(
+		U"Finish Installing",
+		U"This wizard finish installing softwares your selected one.\nPlease press Next to finish this wizard."
+	);
+	if (next.update()) { System::Exit(); }
 }

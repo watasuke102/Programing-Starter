@@ -2,7 +2,7 @@
 
 constexpr int WINDOW_WIDTH  = 600;
 constexpr int WINDOW_HEIGHT = 400;
-constexpr int SCENE_MAX     = 4;
+constexpr int SCENE_MAX     = 5;
 
 #include <iostream>
 #include <Siv3D.hpp>
@@ -40,6 +40,7 @@ class _pages
 		void selectLanguage();
 		void selectEditor();
 		void showInstallList();
+		void finishWizard();
 
 	public:
 		_pages();
