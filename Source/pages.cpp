@@ -80,10 +80,6 @@ void _pages::selectLanguage()
 				installList += checklist[i].getName() + U", ";
 					command += checklist[i].getCommand() + U' ';
 			}
-			//TODO:ここで改行を入れるとコマンド実行が面倒なので修正
-			//コマンドは長くなるので、最後なら改行を挿入
-			if(i == checklist.size()-1)
-				command += U'\n';
 		}
 		scene++; loadList();
 	}
@@ -121,8 +117,10 @@ void _pages::showInstallList()
 {
 	drawExplanation(
 		U"Check Your Choice",
-		U"This wizard will install these softwares.\n\n {}\n(package: {})"_fmt(installList,command)
+		U"This wizard will install these softwares."
 	);
+	FontAsset(U"text")(U"{}\n(package: {})"_fmt(installList, command))
+		.draw(Rect(20, 100, 450));
 	if (next.update())
 	{
 		String tmp = U"yay -Syu --noconfirm; yay -S {} --noconfirm"_fmt(command);
