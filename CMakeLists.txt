@@ -34,9 +34,9 @@ set(SOURCE_FILES
 	"./Source/checkLists.cpp"
 )
 
-add_executable(Siv3D_App ${SOURCE_FILES})
+add_executable(ProgramingStarter ${SOURCE_FILES})
 
-target_link_libraries(Siv3D_App
+target_link_libraries(ProgramingStarter
 	/home/watasuke/Documents/OpenSiv3D/Linux/Build/libSiv3D.a
 	${OPENCV4_LIBRARIES}
 	-lOpenGL

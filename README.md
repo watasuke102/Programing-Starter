@@ -11,8 +11,8 @@ This is wizard which can assist building programing enviroment. Choose programin
 
 ## どうやって使うの/How to use
 	git clone https://github.com/watasuke102/Programing-Starter
-このコマンドをターミナル上で実行後、Siv3D_Appを実行してください (開発中のため、自己責任でお願いします)。  
-Run this command on terminal. After that run Siv3D_App. (This is beta, so please run at your own responsibility.)
+このコマンドをターミナル上で実行後、どうにかしてビルドしてください (開発中のため、自己責任でお願いします)。  
+Run this command on terminal. After that please build somehow. (This is beta, so please run at your own responsibility)
 
 ## その他/Other
 Twitter (@Watasuke102) とGithubアカウントのフォロー、リポジトリのスターよろしくおねがいします〜  
