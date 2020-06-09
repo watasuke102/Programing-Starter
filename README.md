@@ -10,6 +10,10 @@ Let's Try!
 This is wizard which can assist building programing enviroment. Choose programing language and editor, and this wizard will install them on Arch Linux(Manjaro/Alter Linux and other Arch derived distribution).
 
 ## どうやって使うの/How to use
+### Releasesからダウンロード/Download from Releases
+Releasesから最新のリリースをダウンロードしてください。  
+Please downroad the newest releases from Releases.  
+### ビルドして使う/Build this yourself
 	git clone https://github.com/watasuke102/Programing-Starter
 このコマンドをターミナル上で実行後、どうにかしてビルドしてください (開発中のため、自己責任でお願いします)。  
 Run this command on terminal. After that please build somehow. (This is beta, so please run at your own responsibility)

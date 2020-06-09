@@ -124,9 +124,9 @@ void _pages::showInstallList()
 	if (next.update())
 	{
 		String tmp = U"yay -Syu --noconfirm; yay -S {} --noconfirm"_fmt(command);
-		Print << U"\n\n\n\n\n" << tmp;
+		//Print << U"\n\n\n\n\n" << tmp;
 		std::string run = tmp.narrow();
-		//system(run.c_str());
+		system(run.c_str());
 		scene++; loadList();
 	}
 	if (back.update()) {scene--; loadList();}
